@@ -3,7 +3,7 @@
     "path": "D:/PROJETS R/CONSULTANCE/ange/_posts/welcome/welcome.Rmd",
     "project_path": "_posts/welcome/welcome.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3304629544",
     "contents": "",
     "dirty": false,
     "created": 1649153538090.0,
@@ -11,14 +11,16 @@
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "1,53",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1649153529,
+    "lastKnownWriteTime": 1649155930,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1649153529,
+    "last_content_update": 1649155930679,
     "read_only": false,
     "read_only_alternatives": []
 }

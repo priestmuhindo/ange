@@ -1,13 +1,11 @@
 ---
-title: "Welcome to ange_libongi"
+title: "loi de Laffer sur le système fiscal congolais"
 description: |
-  Welcome to our new blog, ange_libongi. We hope you enjoy 
-  reading what we have to say!
+ Merci de parcourir la quintessence de cet article 
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Priestley Muhindo 
+    url: https://priestmuhindo.github.io/ange/
+    
 date: 04-05-2022
 output:
   distill::distill_article:

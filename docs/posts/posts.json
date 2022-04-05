@@ -1,19 +1,19 @@
 [
   {
     "path": "posts/welcome/",
-    "title": "Welcome to ange_libongi",
-    "description": "Welcome to our new blog, ange_libongi. We hope you enjoy \nreading what we have to say!",
+    "title": "loi de Laffer sur le système fiscal congolais",
+    "description": "Merci de parcourir la quintessence de cet article",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Priestley Muhindo",
+        "url": "https://priestmuhindo.github.io/ange/"
       }
     ],
     "date": "2022-04-05",
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2022-04-05T12:12:12+02:00",
-    "input_file": {}
+    "last_modified": "2022-04-05T12:52:14+02:00",
+    "input_file": "welcome.knit.md"
   }
 ]
