@@ -13,12 +13,39 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,message = FALSE,warning = FALSE)
 
 # Learn more about creating blogs with Distill at:
 # https://rstudio.github.io/distill/blog.html
 
 ```
 
+```{r chargement des packages}
+library(tidyverse)
+library(readxl)
+library(car)
 
+
+
+
+```
+
+```{r importation des données}
+df <- read_excel("data.xlsx")
+```
+#Modèle linéaire 
+```{r}
+lineaire <- lm(taux_impos~Annee,data = df)
+summary(lineaire)
+```
+##Visualisation du modèle
+```{r}
+scatterplot(taux_impos~Annee,data = df)
+```
+
+## Les tests des résidus
+```{r}
+par(mfrow=c(2,2))
+plot(lineaire) 
+```
 

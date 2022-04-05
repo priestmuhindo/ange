@@ -1,22 +1,5 @@
 [
   {
-    "path": "posts/welcome/",
-    "title": "loi de Laffer sur le système fiscal congolais",
-    "description": "Merci de parcourir la quintessence de cet article",
-    "author": [
-      {
-        "name": "Priestley Muhindo",
-        "url": "https://priestmuhindo.github.io/ange/"
-      }
-    ],
-    "date": "2022-04-05",
-    "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2022-04-05T12:52:14+02:00",
-    "input_file": "welcome.knit.md"
-  },
-  {
     "path": "posts/second_post/",
     "title": "deuxième article",
     "description": "Merci de parcourir la quintessence de cet article",
@@ -32,5 +15,22 @@
     "preview": {},
     "last_modified": "2022-04-05T13:03:31+02:00",
     "input_file": "second.knit.md"
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "loi de Laffer sur le système fiscal congolais",
+    "description": "Merci de parcourir la quintessence de cet article",
+    "author": [
+      {
+        "name": "Priestley Muhindo",
+        "url": "https://priestmuhindo.github.io/ange/"
+      }
+    ],
+    "date": "2022-04-05",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n#Modèle linéaire\r\n\r\n\r\nCall:\r\nlm(formula = taux_impos ~ Annee, data = df)\r\n\r\nResiduals:\r\n    Min      1Q  Median      3Q     Max \r\n-2.8567 -1.8409  0.2729  1.5214  2.9791 \r\n\r\nCoefficients:\r\n              Estimate Std. Error t value Pr(>|t|)   \r\n(Intercept) -400.29875  132.29806  -3.026  0.00727 **\r\nAnnee          0.20309    0.06586   3.084  0.00640 **\r\n---\r\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\r\n\r\nResidual standard error: 1.95 on 18 degrees of freedom\r\nMultiple R-squared:  0.3457,    Adjusted R-squared:  0.3093 \r\nF-statistic: 9.509 on 1 and 18 DF,  p-value: 0.006405\r\n\r\n##Visualisation du modèle\r\n\r\n\r\n\r\nLes tests des résidus\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/welcome/welcome_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2022-04-05T14:03:32+02:00",
+    "input_file": "welcome.knit.md"
   }
 ]

@@ -1,0 +1,19 @@
+"0","library(tidyverse)"
+"0","library(readxl)"
+"0","library(car)"
+"2","Le chargement a nécessité le package : carData
+"
+"2","
+Attachement du package : ‘car’
+
+"
+"2","L'objet suivant est masqué depuis ‘package:dplyr’:
+
+    recode
+
+"
+"2","L'objet suivant est masqué depuis ‘package:purrr’:
+
+    some
+
+"
