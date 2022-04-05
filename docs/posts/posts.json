@@ -15,5 +15,22 @@
     "preview": {},
     "last_modified": "2022-04-05T12:52:14+02:00",
     "input_file": "welcome.knit.md"
+  },
+  {
+    "path": "posts/second_post/",
+    "title": "deuxième article",
+    "description": "Merci de parcourir la quintessence de cet article",
+    "author": [
+      {
+        "name": "Priestley Muhindo",
+        "url": "https://priestmuhindo.github.io/ange/"
+      }
+    ],
+    "date": "2022-04-05",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-04-05T13:03:31+02:00",
+    "input_file": "second.knit.md"
   }
 ]
