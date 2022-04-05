@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["~$data.xlsx","data.xlsx","welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/figure-html5/unnamed-chunk-2-1.png","welcome_files/figure-html5/unnamed-chunk-3-1.png","welcome_files/header-attrs-2.13/header-attrs.js","welcome_files/jquery-3.6.0/jquery-3.6.0.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.map","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["~$data.xlsx","data.xlsx","welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/figure-html5/unnamed-chunk-2-1.png","welcome_files/figure-html5/unnamed-chunk-3-1.png","welcome_files/figure-html5/unnamed-chunk-4-1.png","welcome_files/header-attrs-2.13/header-attrs.js","welcome_files/jquery-3.6.0/jquery-3.6.0.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.map","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1489,36 +1489,97 @@ class="uri">https://priestmuhindo.github.io/ange/</a>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-#Modèle linéaire
+<h1 id="modele-lineaire">MODELE LINEAIRE</h1>
+<h2
+id="paramètres-du-modèle-et-test-individuel-des-coeficients">Paramètres
+du modèle et test individuel des coeficients</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-Call:
-lm(formula = taux_impos ~ Annee, data = df)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--2.8567 -1.8409  0.2729  1.5214  2.9791 
-
-Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept) -400.29875  132.29806  -3.026  0.00727 **
-Annee          0.20309    0.06586   3.084  0.00640 **
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 1.95 on 18 degrees of freedom
-Multiple R-squared:  0.3457,    Adjusted R-squared:  0.3093 
-F-statistic: 9.509 on 1 and 18 DF,  p-value: 0.006405</code></pre>
+<pre><code># A tibble: 2 x 5
+  term        estimate std.error statistic p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept) -400.     132.         -3.03 0.00727
+2 Annee          0.203    0.0659      3.08 0.00640</code></pre>
 </div>
-##Visualisation du modèle
+<p>Nous trouvons que les coefficients individuels sont significatifs au
+seuil de 5%</p>
+<h2 id="visualisation-du-modèle">Visualisation du modèle</h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="welcome_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<h2 id="les-tests-des-résidus">Les tests des résidus</h2>
+<p>Par Comparaison de la droite d’ajustement à la droite de loewess,il
+est clair que la regression linéaire ne convient pas étant donné qu’elle
+se situe en déhors de l’intervalle de confiance de la droite de
+lowess</p>
+<h2 id="test-dautocorrélation-de-durbin-watson">Test d’autocorrélation
+de DUrbin WAtson</h2>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="welcome_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<pre><code> lag Autocorrelation D-W Statistic p-value
+   1       0.6799171     0.5206227       0
+ Alternative hypothesis: rho != 0</code></pre>
 </div>
-<div class="sourceCode" id="cb2"><pre
+<p>Ce test nous permet de vérifier s’il ya une autocorrélation des
+erreurs.Vu la p-value,nous trouvons que les résidus sont non
+normaux.</p>
+<h2 id="test-de-la-normalité-des-erreurs">Test de la normalité des
+erreurs</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(lineaire)
+W = 0.93455, p-value = 0.1888</code></pre>
+</div>
+<p>nous utiliserons le test de shapiro wilkes pour évaluer la normalité
+des résidus du modèle.Il est clair que les résidus du modèle sont
+normaux ## Test d’héteroscédaticité de la variance des erreurs</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.903133, Df = 1, p = 0.34194</code></pre>
+</div>
+<p>ce test est de Breush-Pagan ,il nous permet de vérifier s’il ya
+hétérogénéité de la variance des erreurs ,nous constatons qu’il ya
+homogénéité des variances des erreurs</p>
+<h1 id="modele-polynomial-de-degre-2quadratique">MODELE POLYNOMIAL DE
+DEGRE 2(QUADRATIQUE)</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+lm(formula = taux_impos ~ Annee + I(Annee^2), data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.5646 -0.9894 -0.2901  0.8220  2.3353 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.548e+05  3.421e+04  -4.526 0.000299 ***
+Annee        1.540e+02  3.406e+01   4.520 0.000302 ***
+I(Annee^2)  -3.828e-02  8.480e-03  -4.515 0.000306 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.353 on 17 degrees of freedom
+Multiple R-squared:  0.7024,    Adjusted R-squared:  0.6674 
+F-statistic: 20.06 on 2 and 17 DF,  p-value: 3.354e-05</code></pre>
+</div>
+<h2 id="comparaison-de-deux-modèles">Comparaison de deux modèles</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Analysis of Variance Table
+
+Model 1: taux_impos ~ Annee
+Model 2: taux_impos ~ Annee + I(Annee^2)
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1     18 68.414                                  
+2     17 31.113  1    37.301 20.381 0.0003061 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<p>Vu que la p-value de la statistique de fisher de comparaison entre
+les deux modèles est inférieure au seuil de signification de 5% et que
+le RSS du modèle polynomial est faible ,le modèle polynomial est
+meilleur que le modèle linéaire</p>
+<div class="sourceCode" id="cb7"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

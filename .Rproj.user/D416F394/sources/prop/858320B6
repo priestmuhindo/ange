@@ -1,7 +1,8 @@
 {
     "source_window_id": "",
     "Source": "Source",
-    "cursorPosition": "42,38",
-    "scrollLine": "31",
-    "last_setup_crc32": "5A8CC508ddc7705c"
+    "cursorPosition": "84,62",
+    "scrollLine": "81",
+    "last_setup_crc32": "5A8CC508ddc7705c",
+    "ignored_words": "utiliserons\n"
 }

@@ -1,0 +1,4 @@
+"0","mod3 <- nls(taux_impos~a*Annee^b, data=df,start = list(a=0,b=0))"
+"2","Error in nlsModel(formula, mf, start, wts, scaleOffset = scOff, nDcentral = nDcntr) : 
+  singular gradient matrix at initial parameter estimates
+"

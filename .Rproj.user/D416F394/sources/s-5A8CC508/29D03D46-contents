@@ -24,28 +24,64 @@ knitr::opts_chunk$set(echo = FALSE,message = FALSE,warning = FALSE)
 library(tidyverse)
 library(readxl)
 library(car)
-
-
-
-
+library(glue)
+library(broom)
+library(broom.helpers)
+library(GGally)
+library(forestmodel)
+library(gtsummary)
 ```
 
 ```{r importation des données}
 df <- read_excel("data.xlsx")
 ```
-#Modèle linéaire 
+# MODELE LINEAIRE
+## Paramètres du modèle et test individuel des coeficients
+
 ```{r}
 lineaire <- lm(taux_impos~Annee,data = df)
-summary(lineaire)
+tidy(lineaire)
 ```
-##Visualisation du modèle
+Nous trouvons que les coefficients individuels sont significatifs au seuil de 5%
+
+## Visualisation du modèle
 ```{r}
 scatterplot(taux_impos~Annee,data = df)
 ```
 
-## Les tests des résidus
+Par Comparaison de la droite d'ajustement à la droite de loewess,il est clair que la regression linéaire ne convient pas étant donné qu'elle se situe en déhors de l'intervalle de confiance de la droite de lowess 
+
+## Test d'autocorrélation de DUrbin WAtson
 ```{r}
-par(mfrow=c(2,2))
-plot(lineaire) 
+durbinWatsonTest(lineaire)
+```
+Ce test nous permet de vérifier s'il ya une autocorrélation des erreurs.Vu la p-value,nous trouvons que les résidus sont non normaux.
+
+## Test de la normalité des erreurs
+
+```{r}
+shapiro.test(residuals(lineaire))
+```
+nous utiliserons le test de shapiro wilkes pour évaluer la normalité des résidus du modèle.Il est clair que les résidus du modèle sont normaux
+## Test d'héteroscédaticité de la variance des erreurs
+
+```{r}
+ncvTest(lineaire)
+```
+ce test est de Breush-Pagan ,il nous permet de vérifier s'il ya hétérogénéité de la variance des erreurs ,nous constatons qu'il ya homogénéité des variances des erreurs
+
+# MODELE POLYNOMIAL DE DEGRE 2(QUADRATIQUE)
+```{r}
+mod2 <- lm(taux_impos~Annee+I(Annee^2), data=df)
+summary(mod2)
+```
+## Comparaison de deux modèles 
+```{r}
+anova(lineaire,mod2)
+```
+Vu que la p-value  de la statistique de fisher de comparaison entre les deux modèles est inférieure au seuil de signification de 5% et que le RSS du modèle polynomial est faible ,le modèle polynomial est  meilleur que le modèle linéaire
+
+```{r}
+mod3 <- nls(taux_impos~a*Annee^b, data=df,start = list(a=0,b=0))
 ```
 

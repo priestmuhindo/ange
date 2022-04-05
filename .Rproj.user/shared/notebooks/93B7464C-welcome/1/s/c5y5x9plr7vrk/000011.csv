@@ -1,19 +1,13 @@
-"0","library(tidyverse)"
-"0","library(readxl)"
-"0","library(car)"
-"2","Le chargement a nécessité le package : carData
+"0","library(gtsummary)
+"
+"2","#BlackLivesMatter
 "
 "2","
-Attachement du package : ‘car’
+Attachement du package : ‘gtsummary’
 
 "
-"2","L'objet suivant est masqué depuis ‘package:dplyr’:
+"2","L'objet suivant est masqué depuis ‘package:broom.helpers’:
 
-    recode
-
-"
-"2","L'objet suivant est masqué depuis ‘package:purrr’:
-
-    some
+    all_continuous
 
 "
