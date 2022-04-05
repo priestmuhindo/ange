@@ -82,6 +82,14 @@ anova(lineaire,mod2)
 Vu que la p-value  de la statistique de fisher de comparaison entre les deux modèles est inférieure au seuil de signification de 5% et que le RSS du modèle polynomial est faible ,le modèle polynomial est  meilleur que le modèle linéaire
 
 ```{r}
-mod3 <- nls(taux_impos~a*Annee^b, data=df,start = list(a=0,b=0))
+ggplot(df, aes(y=taux_impos, x=Annee))+
+      geom_point()+
+      geom_smooth(colour="red", 
+                method="lm", 
+                fill="red",
+                formula=y~x+I(x^2)) +
+      theme_classic()+
+  annotate("text", x = 2010, y = 3, label = "taux_impos= -1.548e+05xAnnee+ 1.540e+02 x Annee\n -3.828e-02 X Annee²") 
+      
 ```
 

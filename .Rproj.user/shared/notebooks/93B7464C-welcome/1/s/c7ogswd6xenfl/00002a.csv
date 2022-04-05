@@ -1,0 +1,8 @@
+"0","ggplot(df, aes(y=taux_impos, x=Annee))+"
+"0","      geom_point()+"
+"0","      geom_smooth(colour=""red"", "
+"0","                method=""lm"", "
+"0","                fill=""red"","
+"0","                formula=y~x+I(x^2)) +"
+"0","      theme_classic()+"
+"0","  annotate(""text"", x = 2010, y = 3, label = ""taux_impos= -1.548e+05xAnnee+ 1.540e+02 x Annee\n -3.828e-02 X Annee²"") "
